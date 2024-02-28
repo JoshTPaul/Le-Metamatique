@@ -59,14 +59,19 @@ header {
         color: inherit;
         text-decoration: none;
 
+        // Consider moving this into its own element
         &:not(:last-of-type)::after {
-          display: inline;
-          content: "⬩";
+          display: block;
+          content: '';
+          width: 0.5rem;
+          aspect-ratio: 1;
+          rotate: 45deg;
+          background-color: currentColor;
           position: absolute;
           font-size: 2rem;
           top: 50%;
           translate: 0 -50%;
-          right: -1.5rem;
+          right: -1.25rem;
         }
       }
     }
