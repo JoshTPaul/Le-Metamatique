@@ -10,6 +10,23 @@ body {
   padding: 0 5rem;
 }
 
+body,
+#app {
+  min-height: 100dvh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
 header {
   padding-top: 1.25rem;
 
@@ -62,7 +79,7 @@ header {
         // Consider moving this into its own element
         &:not(:last-of-type)::after {
           display: block;
-          content: '';
+          content: "";
           width: 0.5rem;
           aspect-ratio: 1;
           rotate: 45deg;
@@ -76,4 +93,10 @@ header {
       }
     }
   }
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,55 @@
+#sources {
+  flex-grow: 1;
+  display: grid;
+  place-items: center;
+  padding-block: 2rem;
+
+  aside {
+    width: min(485px, 100%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  h1,
+  p,
+  div {
+    grid-column: 1/5;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+
+  article {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding-bottom: 0.75rem;
+
+    img {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      aspect-ratio: 1;
+      border: 1px solid;
+      margin-bottom: 0.75rem;
+    }
+
+    &.selected {
+      svg {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        inset: -0.25rem;
+        border: 1px solid;
+      }
+    }
+  }
+}
