@@ -4,7 +4,8 @@ import Sources from "../components/Sources";
 import { TanStackRouterDevtools } from "../utils/TanStackRouterDevtools";
 
 const Root = () => {
-  const savedSources = localStorage.getItem("savedSources");
+  // const savedSources = localStorage.getItem("savedSources");
+  const savedSources = true;
 
   return (
     <>
