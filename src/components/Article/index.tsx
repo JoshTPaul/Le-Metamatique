@@ -1,29 +1,29 @@
-import useGetRssFeed from "../../utils/useGetRssFeed";
-import "./styles.scss";
+import { ArticleType } from "../../types";
 
-function Article() {
-  //   const res = useSearch({ strict: false });
-  const { data, isSuccess } = useGetRssFeed();
+type Props = Omit<ArticleType, "description"> & {
+  source: string;
+} & Pick<React.HTMLAttributes<HTMLElement>, "onClick">;
 
-  console.log(data, "data");
-
-  const source = "BBC";
-  const author = "Firstname Lastname";
-  const publishedAt = "Oct 1, 2023 at 08:00 IST";
-
-  if (isSuccess) {
-    const { title, description, imgLink } = data[0];
-    return (
-      <article id="article">
-        <h1>{title}</h1>
-        <h6>
-          {source} | {author} | {publishedAt}
-        </h6>
-        <img src={imgLink} alt="" />
-        <p dangerouslySetInnerHTML={{ __html: description }} />
-      </article>
-    );
-  } else return <>Error</>;
+function Article({
+  title,
+  imgLink,
+  contents,
+  guid,
+  publishedAt,
+  source,
+  author,
+  ...rest
+}: Props) {
+  return (
+    <article id={guid} {...rest}>
+      <h1 className="articleTitle">{title}</h1>
+      <h6 className="articleMeta">
+        {source} | {author} | {publishedAt}
+      </h6>
+      <img className="heroImg" src={imgLink} alt="" />
+      <div dangerouslySetInnerHTML={{ __html: contents }} />
+    </article>
+  );
 }
 
 export default Article;
