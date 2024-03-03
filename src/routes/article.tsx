@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import Article from "../components/Article";
 import "../components/Article/styles.scss";
@@ -33,6 +33,7 @@ function ArticlePage() {
   else {
     return (
       <section id="articleView">
+        <Link to="/">Back</Link>
         <Article {...articleData} />
       </section>
     );

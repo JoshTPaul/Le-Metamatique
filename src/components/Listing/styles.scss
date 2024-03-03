@@ -1,0 +1,29 @@
+@use "sass:math";
+$gap: 1.25rem;
+
+#listView {
+  display: flex;
+  align-items: flex-start;
+  gap: $gap;
+
+  .col {
+    flex: 1 1 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+
+    article.largeLayout {
+      .contents {
+        column-count: 2;
+      }
+    }
+
+    article.smallLayout {
+      flex-basis: calc(50% - #{math.div($gap, 2)});
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+}

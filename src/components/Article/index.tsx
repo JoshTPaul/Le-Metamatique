@@ -2,7 +2,7 @@ import { ArticleType } from "../../types";
 
 type Props = Omit<ArticleType, "description"> & {
   source: string;
-} & Pick<React.HTMLAttributes<HTMLElement>, "onClick">;
+} & Pick<React.HTMLAttributes<HTMLElement>, "onClick" | "className">;
 
 function Article({
   title,
@@ -21,7 +21,10 @@ function Article({
         {source} | {author} | {publishedAt}
       </h6>
       <img className="heroImg" src={imgLink} alt="" />
-      <div dangerouslySetInnerHTML={{ __html: contents }} />
+      <div
+        className="contents"
+        dangerouslySetInnerHTML={{ __html: contents }}
+      />
     </article>
   );
 }
